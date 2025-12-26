@@ -13,12 +13,12 @@
 
         <nav class="desktop-nav desktop-only" aria-label="Главное меню">
             <a class="nav__link {{ request()->routeIs('natal') ? 'is-active' : '' }}" href="{{ route('natal') }}">Натальная Карта</a>
-            <a class="nav__link" href="#">Гороскоп</a>
-            <a class="nav__link" href="#">Лунные</a>
-            <a class="nav__link" href="#">Фен-Шуй</a>
-            <a class="nav__link" href="#">Тест-My?</a>
-            <a class="nav__link" href="#">Талисманы</a>
-            <a class="nav__link" href="#">Совместимость</a>
+            <a class="nav__link" href="{{ route('stub', ['slug' => 'horoscope']) }}">Гороскоп</a>
+            <a class="nav__link" href="{{ route('stub', ['slug' => 'lunar']) }}">Лунные</a>
+            <a class="nav__link" href="{{ route('stub', ['slug' => 'feng-shui']) }}">Фен-Шуй</a>
+            <a class="nav__link" href="{{ route('stub', ['slug' => 'test-my']) }}">Тест-My?</a>
+            <a class="nav__link" href="{{ route('stub', ['slug' => 'talismans']) }}">Талисманы</a>
+            <a class="nav__link" href="{{ route('stub', ['slug' => 'compatibility']) }}">Совместимость</a>
         </nav>
 
         <div class="topbar__actions">
