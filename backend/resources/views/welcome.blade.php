@@ -42,7 +42,7 @@
     <aside class="sidebar desktop-only">
         <x-card class="glass-card">
             <h4 class="glass-title">Гороскоп для:</h4>
-            <x-zodiac-grid activeKey="aries" />
+            <x-zodiac-grid active-key="aries" />
         </x-card>
     </aside>
 @endsection
