@@ -193,3 +193,129 @@
 .zodiac-chip.is-active .zodiac-label {
   color: rgba(212,175,55,1);
 }
+
+/* =========================
+   ZODIAC ARTICLE
+========================= */
+.zodiac-hero {
+  padding: 24px;
+}
+
+.zodiac-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(230, 237, 243, 0.6);
+  margin-bottom: 12px;
+}
+
+.zodiac-article {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  line-height: 1.65;
+}
+
+.zodiac-article h2,
+.zodiac-article h3,
+.zodiac-article h4 {
+  margin: 0;
+}
+
+.zodiac-article h2 {
+  font-size: 22px;
+}
+
+.zodiac-article h3 {
+  font-size: 18px;
+}
+
+.zodiac-article h4 {
+  font-size: 16px;
+  color: var(--gold);
+}
+
+.zodiac-article ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.zodiac-article__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* =========================
+   COMPATIBILITY CARDS
+========================= */
+.compatibility {
+  display: grid;
+  gap: 16px;
+}
+
+.compatibility__head h2 {
+  margin: 0 0 6px;
+}
+
+.compatibility__scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x proximity;
+}
+
+.compatibility__scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.compatibility__scroll::-webkit-scrollbar-thumb {
+  background: rgba(230, 237, 243, 0.22);
+  border-radius: 999px;
+}
+
+.compatibility-card {
+  min-width: 220px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(230, 237, 243, 0.12);
+  background:
+    radial-gradient(140px 90px at 12% 10%, rgba(212,175,55,0.10), transparent 60%),
+    radial-gradient(160px 110px at 92% 0%, rgba(110,86,207,0.16), transparent 65%),
+    rgba(22,27,34,0.88);
+  display: grid;
+  gap: 6px;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.compatibility-card__label {
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.compatibility-card__meta {
+  font-size: 13px;
+  color: rgba(230, 237, 243, 0.7);
+}
+
+.compatibility-card__cta {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(230, 237, 243, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.compatibility-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+}
