@@ -41,6 +41,48 @@ Route::get('/', function () {
     ]);
 })->name('natal');
 
+Route::get('/fixed-stars', function () {
+    return stubPage([
+        'title' => 'Неподвижные звезды',
+        'subtitle' => 'Собираем карту созвездий и их влияния.',
+    ]);
+})->name('fixed-stars');
+
+Route::get('/horoscopes-online', function () {
+    return stubPage([
+        'title' => 'Гороскопы онлайн',
+        'subtitle' => 'Готовим ежедневные и недельные прогнозы.',
+    ]);
+})->name('horoscopes-online');
+
+Route::get('/eastern-astrology', function () {
+    return stubPage([
+        'title' => 'Восточная Астрология',
+        'subtitle' => 'Собираем систему стихий и годов рождения.',
+    ]);
+})->name('eastern-astrology');
+
+Route::get('/western-astrology', function () {
+    return stubPage([
+        'title' => 'Западная Астрология',
+        'subtitle' => 'Подготавливаем классические техники анализа.',
+    ]);
+})->name('western-astrology');
+
+Route::get('/lunar-astrology', function () {
+    return stubPage([
+        'title' => 'Лунная Астрология',
+        'subtitle' => 'Строим лунные календари и рекомендации.',
+    ]);
+})->name('lunar-astrology');
+
+Route::get('/talismans-biorhythms', function () {
+    return stubPage([
+        'title' => 'Талисманы и биоритмы',
+        'subtitle' => 'Подбираем амулеты и персональные циклы.',
+    ]);
+})->name('talismans-biorhythms');
+
 Route::get('/horoscope', function () {
     return stubPage([
         'title' => 'Гороскоп',
@@ -57,7 +99,7 @@ Route::get('/lunar', function () {
 
 Route::get('/feng-shui', function () {
     return stubPage([
-        'title' => 'Фен-Шуй',
+        'title' => 'Фен Шуй',
         'subtitle' => 'Настраиваем энергии пространства.',
     ]);
 })->name('feng-shui');
@@ -82,6 +124,34 @@ Route::get('/compatibility', function () {
         'subtitle' => 'Сводим пары и сравниваем энергии.',
     ]);
 })->name('compatibility');
+
+Route::get('/zodiac-compatibility', function () {
+    return stubPage([
+        'title' => 'Совместимость знаков зодиака',
+        'subtitle' => 'Готовим детальные разборы пар.',
+    ]);
+})->name('zodiac-compatibility');
+
+Route::get('/synastry', function () {
+    return stubPage([
+        'title' => 'Синастрия',
+        'subtitle' => 'Добавляем аналитику карт отношений.',
+    ]);
+})->name('synastry');
+
+Route::get('/solar', function () {
+    return stubPage([
+        'title' => 'Соляр',
+        'subtitle' => 'Формируем годовые прогнозы по дате рождения.',
+    ]);
+})->name('solar');
+
+Route::get('/source', function () {
+    return stubPage([
+        'title' => 'Источник',
+        'subtitle' => 'Собираем проверенные материалы и справку.',
+    ]);
+})->name('source');
 
 Route::get('{sign}/harakteristika', function (string $sign) {
     $zodiac = config('zodiac');

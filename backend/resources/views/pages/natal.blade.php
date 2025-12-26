@@ -5,15 +5,7 @@
 @section('content')
     {{-- LEFT SIDEBAR --}}
     <aside class="sidebar desktop-only">
-        <x-card>
-            <h4 class="gold">Астрологический дневник</h4>
-            <p class="muted">14 лунный день</p>
-        </x-card>
-
-        <x-card>
-            <h4 class="gold">Планеты сейчас</h4>
-            <p class="violet">Меркурий ретрограден</p>
-        </x-card>
+        @include('pages.partials.left-sidebar-links')
     </aside>
 
     {{-- CONTENT --}}
