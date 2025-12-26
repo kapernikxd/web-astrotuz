@@ -13,12 +13,12 @@
 
         <nav class="desktop-nav desktop-only" aria-label="Главное меню">
             <a class="nav__link {{ request()->routeIs('natal') ? 'is-active' : '' }}" href="{{ route('natal') }}">Натальная Карта</a>
-            <a class="nav__link" href="#">Гороскоп</a>
-            <a class="nav__link" href="#">Лунные</a>
-            <a class="nav__link" href="#">Фен-Шуй</a>
-            <a class="nav__link" href="#">Тест-My?</a>
-            <a class="nav__link" href="#">Талисманы</a>
-            <a class="nav__link" href="#">Совместимость</a>
+            <a class="nav__link {{ request()->routeIs('horoscope') ? 'is-active' : '' }}" href="{{ route('horoscope') }}">Гороскоп</a>
+            <a class="nav__link {{ request()->routeIs('lunar') ? 'is-active' : '' }}" href="{{ route('lunar') }}">Лунные</a>
+            <a class="nav__link {{ request()->routeIs('feng-shui') ? 'is-active' : '' }}" href="{{ route('feng-shui') }}">Фен-Шуй</a>
+            <a class="nav__link {{ request()->routeIs('test-my') ? 'is-active' : '' }}" href="{{ route('test-my') }}">Тест-My?</a>
+            <a class="nav__link {{ request()->routeIs('talismans') ? 'is-active' : '' }}" href="{{ route('talismans') }}">Талисманы</a>
+            <a class="nav__link {{ request()->routeIs('compatibility') ? 'is-active' : '' }}" href="{{ route('compatibility') }}">Совместимость</a>
         </nav>
 
         <div class="topbar__actions">

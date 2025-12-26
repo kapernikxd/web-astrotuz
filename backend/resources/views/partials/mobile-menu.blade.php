@@ -12,12 +12,12 @@
 
         <nav class="menu-list">
             <a class="menu-item" href="{{ route('natal') }}"><span class="menu-ic">≡</span><span class="menu-txt">Натальная карта</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">＋</span><span class="menu-txt">Гороскоп</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">☾</span><span class="menu-txt">Лунные</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">✣</span><span class="menu-txt">Фен-Шуй</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">⌁</span><span class="menu-txt">Тест-My?</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">✦</span><span class="menu-txt">Талисманы</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">⟲</span><span class="menu-txt">Совместимость</span></a>
+            <a class="menu-item" href="{{ route('horoscope') }}"><span class="menu-ic">＋</span><span class="menu-txt">Гороскоп</span></a>
+            <a class="menu-item" href="{{ route('lunar') }}"><span class="menu-ic">☾</span><span class="menu-txt">Лунные</span></a>
+            <a class="menu-item" href="{{ route('feng-shui') }}"><span class="menu-ic">✣</span><span class="menu-txt">Фен-Шуй</span></a>
+            <a class="menu-item" href="{{ route('test-my') }}"><span class="menu-ic">⌁</span><span class="menu-txt">Тест-My?</span></a>
+            <a class="menu-item" href="{{ route('talismans') }}"><span class="menu-ic">✦</span><span class="menu-txt">Талисманы</span></a>
+            <a class="menu-item" href="{{ route('compatibility') }}"><span class="menu-ic">⟲</span><span class="menu-txt">Совместимость</span></a>
         </nav>
 
         <button class="menu-logout">Выйти</button>
