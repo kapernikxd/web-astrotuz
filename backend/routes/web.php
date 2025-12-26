@@ -161,13 +161,55 @@ Route::get('{sign}/harakteristika', function (string $sign) {
     }
 
     $active = $zodiac[$sign];
+    $contentView = 'pages.partials.content-natal';
+    $compatibilityLinks = [];
+
+    if ($sign === 'oven') {
+        $contentView = 'pages.partials.content-oven';
+        $compatibilityLinks = collect($zodiac)
+            ->map(function (array $item, string $slug) use ($sign, $active) {
+                return [
+                    'label' => $item['label'],
+                    'pair' => $active['label'] . ' и ' . $item['label'],
+                    'url' => route('zodiac.compatibility', ['sign' => $sign, 'with' => $slug]),
+                ];
+            })
+            ->values()
+            ->all();
+    }
 
     return view('pages.natal', [
+        'pageTitle' => 'ASTROTUZ — ' . $active['label'] . ' | Характеристика знака зодиака',
+        'contentView' => $contentView,
         'activeKey' => $active['key'],
         'activeLabel' => $active['label'],
         'activeDescription' => $active['description'],
+        'compatibilityLinks' => $compatibilityLinks,
     ]);
 })->name('zodiac.show');
+
+Route::get('{sign}/sovmestimost/{with}', function (string $sign, string $with) {
+    $zodiac = config('zodiac');
+
+    if (!array_key_exists($sign, $zodiac) || !array_key_exists($with, $zodiac)) {
+        abort(404);
+    }
+
+    $base = $zodiac[$sign];
+    $partner = $zodiac[$with];
+
+    $snippets = [
+        'Собираем астрологические акценты пары и ключевые точки притяжения.',
+        'Расскажем о динамике эмоций, быта и общих целей.',
+        'Добавим советы, которые помогут сохранить гармонию и интерес.',
+    ];
+
+    return view('pages.stub', [
+        'title' => 'Совместимость: ' . $base['label'] . ' и ' . $partner['label'],
+        'subtitle' => 'Подробный разбор союза и сильных сторон пары готовится.',
+        'content' => $snippets,
+    ]);
+})->name('zodiac.compatibility');
 
 Route::get('/stub/{slug}', function (string $slug) {
     $stubs = [
