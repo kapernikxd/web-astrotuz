@@ -14,6 +14,20 @@
   }
 }
 
+/* CONTENT CENTERING */
+.content {
+  justify-self: center;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.content > * {
+  width: 100%;
+}
+
 /* HERO */
 .hero h1 { margin: 0 0 8px; }
 
