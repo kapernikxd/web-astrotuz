@@ -13,12 +13,12 @@
 
         <nav class="desktop-nav desktop-only" aria-label="Главное меню">
             <a class="nav__link {{ request()->routeIs('natal') ? 'is-active' : '' }}" href="{{ route('natal') }}">Натальная Карта</a>
-            <a class="nav__link" href="{{ route('stub', ['slug' => 'horoscope']) }}">Гороскоп</a>
-            <a class="nav__link" href="{{ route('stub', ['slug' => 'lunar']) }}">Лунные</a>
-            <a class="nav__link" href="{{ route('stub', ['slug' => 'feng-shui']) }}">Фен-Шуй</a>
-            <a class="nav__link" href="{{ route('stub', ['slug' => 'test-my']) }}">Тест-My?</a>
-            <a class="nav__link" href="{{ route('stub', ['slug' => 'talismans']) }}">Талисманы</a>
-            <a class="nav__link" href="{{ route('stub', ['slug' => 'compatibility']) }}">Совместимость</a>
+            <a class="nav__link {{ request()->routeIs('horoscope') ? 'is-active' : '' }}" href="{{ route('horoscope') }}">Гороскоп</a>
+            <a class="nav__link {{ request()->routeIs('lunar') ? 'is-active' : '' }}" href="{{ route('lunar') }}">Лунные</a>
+            <a class="nav__link {{ request()->routeIs('feng-shui') ? 'is-active' : '' }}" href="{{ route('feng-shui') }}">Фен-Шуй</a>
+            <a class="nav__link {{ request()->routeIs('test-my') ? 'is-active' : '' }}" href="{{ route('test-my') }}">Тест-My?</a>
+            <a class="nav__link {{ request()->routeIs('talismans') ? 'is-active' : '' }}" href="{{ route('talismans') }}">Талисманы</a>
+            <a class="nav__link {{ request()->routeIs('compatibility') ? 'is-active' : '' }}" href="{{ route('compatibility') }}">Совместимость</a>
         </nav>
 
         <div class="topbar__actions">
