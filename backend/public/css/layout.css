@@ -81,6 +81,7 @@
   border-radius: 999px;
   border: 1px solid rgba(230,237,243,0.12);
   background: rgba(11,14,20,0.12);
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;

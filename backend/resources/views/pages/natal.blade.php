@@ -42,7 +42,10 @@
     <aside class="sidebar desktop-only">
         <x-card class="glass-card">
             <h4 class="glass-title">Гороскоп для:</h4>
-            <x-zodiac-grid active-key="aries" />
+            <x-zodiac-grid :active-key="$activeKey ?? 'aries'" />
+            <p class="muted" style="margin-top: 16px;">
+                {{ $activeLabel ?? 'Овен' }} — {{ $activeDescription ?? 'Импульсивный лидер, который быстро загорается идеями и ведёт за собой.' }}
+            </p>
         </x-card>
     </aside>
 @endsection
