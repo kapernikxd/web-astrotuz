@@ -30,6 +30,13 @@
             </form>
         </x-card>
 
+        <x-card class="zodiac-description">
+            <h2>Краткое описание знака</h2>
+            <p class="muted">
+                {{ $activeLabel ?? 'Овен' }} — {{ $activeDescription ?? 'Импульсивный лидер, который быстро загорается идеями и ведёт за собой.' }}
+            </p>
+        </x-card>
+
         <div class="services">
             <div class="card service">Натальная карта</div>
             <div class="card service">Совместимость</div>
@@ -43,9 +50,6 @@
         <x-card class="glass-card">
             <h4 class="glass-title">Гороскоп для:</h4>
             <x-zodiac-grid :active-key="$activeKey ?? 'aries'" />
-            <p class="muted" style="margin-top: 16px;">
-                {{ $activeLabel ?? 'Овен' }} — {{ $activeDescription ?? 'Импульсивный лидер, который быстро загорается идеями и ведёт за собой.' }}
-            </p>
         </x-card>
     </aside>
 @endsection
