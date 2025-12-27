@@ -10,13 +10,14 @@
             <button class="menu-close" id="menuCloseBtn" aria-label="Закрыть меню">✕</button>
         </div>
 
-        <nav class="menu-list"> 
-            <a class="menu-item" href="#"><span class="menu-ic">＋</span><span class="menu-txt">Гороскоп</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">☾</span><span class="menu-txt">Лунные</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">✣</span><span class="menu-txt">Фен-Шуй</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">⌁</span><span class="menu-txt">Тест-My?</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">✦</span><span class="menu-txt">Талисманы</span></a>
-            <a class="menu-item" href="#"><span class="menu-ic">⟲</span><span class="menu-txt">Совместимость</span></a>
+        <nav class="menu-list">
+            <a class="menu-item" href="{{ route('natal') }}"><span class="menu-ic">≡</span><span class="menu-txt">Натальная карта</span></a>
+            @foreach ($menuItems ?? [] as $menuItem)
+                <a class="menu-item" href="{{ $menuItem->url ?? '#' }}">
+                    <span class="menu-ic">{{ $menuItem->icon ?: '•' }}</span>
+                    <span class="menu-txt">{{ $menuItem->title }}</span>
+                </a>
+            @endforeach
         </nav>
 
         <button class="menu-logout">Выйти</button>
