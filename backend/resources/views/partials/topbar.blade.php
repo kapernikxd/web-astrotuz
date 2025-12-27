@@ -12,7 +12,6 @@
         </a>
 
         <nav class="desktop-nav desktop-only" aria-label="Главное меню">
-            <a class="nav__link {{ request()->routeIs('natal') ? 'is-active' : '' }}" href="{{ route('natal') }}">Натальная Карта</a>
             @foreach ($menuItems ?? [] as $menuItem)
                 @php
                     $isActive = $menuItem->url

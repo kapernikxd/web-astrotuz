@@ -11,7 +11,6 @@
         </div>
 
         <nav class="menu-list">
-            <a class="menu-item" href="{{ route('natal') }}"><span class="menu-ic">≡</span><span class="menu-txt">Натальная карта</span></a>
             @foreach ($menuItems ?? [] as $menuItem)
                 <a class="menu-item" href="{{ $menuItem->url ?? '#' }}">
                     <span class="menu-ic">{{ $menuItem->icon ?: '•' }}</span>
