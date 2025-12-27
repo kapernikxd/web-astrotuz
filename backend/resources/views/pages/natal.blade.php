@@ -40,9 +40,15 @@
 
     {{-- RIGHT SIDEBAR --}}
     <aside class="sidebar desktop-only">
-        <x-card class="glass-card">
-            <h4 class="glass-title">Гороскоп для:</h4>
-            <x-zodiac-grid activeKey="aries" />
-        </x-card>
+        @foreach($rightSidebarBlocks as $block)
+            <x-card class="glass-card">
+                <h4 class="glass-title">{{ $block->title }}</h4>
+                @if($block->type === 'content')
+                    {!! $block->content !!}
+                @elseif($block->type === 'zodiac_grid')
+                    <x-zodiac-grid :items="$block->zodiac_items ?? []" activeKey="aries" />
+                @endif
+            </x-card>
+        @endforeach
     </aside>
 @endsection
