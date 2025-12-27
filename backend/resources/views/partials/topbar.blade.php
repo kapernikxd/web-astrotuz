@@ -12,7 +12,6 @@
         </a>
 
         <nav class="desktop-nav desktop-only" aria-label="Главное меню">
-            <a class="nav__link {{ request()->routeIs('natal') ? 'is-active' : '' }}" href="{{ route('natal') }}">Натальная Карта</a>
             <a class="nav__link" href="#">Гороскоп</a>
             <a class="nav__link" href="#">Лунные</a>
             <a class="nav__link" href="#">Фен-Шуй</a>
