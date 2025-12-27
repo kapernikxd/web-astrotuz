@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Schema;
 
 class MenuItemResource extends Resource
 {
@@ -17,6 +18,11 @@ class MenuItemResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-bars-3';
     protected static ?string $navigationLabel = 'Header Menu';
     protected static ?string $navigationGroup = 'Content';
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return Schema::hasTable('menu_items');
+    }
 
     public static function form(Form $form): Form
     {
