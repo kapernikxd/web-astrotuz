@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\MenuItem;
+use App\Models\RightSidebarBlock;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -34,6 +35,20 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('menuItems', $menuItems);
+        });
+
+        View::composer(['welcome', 'pages.natal'], function ($view) {
+            $rightSidebarBlocks = collect();
+
+            if (Schema::hasTable('right_sidebar_blocks')) {
+                $rightSidebarBlocks = RightSidebarBlock::query()
+                    ->where('is_active', true)
+                    ->orderBy('sort_order')
+                    ->orderBy('title')
+                    ->get();
+            }
+
+            $view->with('rightSidebarBlocks', $rightSidebarBlocks);
         });
     }
 }
