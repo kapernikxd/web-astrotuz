@@ -20,6 +20,7 @@
 }
 
 .zodiac-article {
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -155,7 +156,6 @@
 }
 
 .zodiac-toc__link {
-  color: #2f2f37;
   font-weight: 600;
   text-decoration: none;
   border-bottom: 2px dashed #c9ccda;
@@ -164,7 +164,7 @@
 
 .zodiac-toc__link:hover,
 .zodiac-toc__link:focus-visible {
-  color: #17171c;
+  color: #c7c7c7;
   border-color: #7e8194;
 }
 

@@ -3,7 +3,7 @@
 @endphp
 
 @if(count($items))
-    <nav class="card zodiac-nav" aria-label="{{ $block['aria_label'] ?? 'Zodiac navigation' }}">
+    <nav class="zodiac-nav" aria-label="{{ $block['aria_label'] ?? 'Zodiac navigation' }}">
         <ul class="zodiac-nav__list">
             @foreach($items as $item)
                 @php
