@@ -8,9 +8,17 @@
   padding: 24px 0 90px;
 }
 
+.content {
+  grid-column: 2;
+}
+
 @media (max-width: 1024px) {
   .layout {
     grid-template-columns: 1fr;
+  }
+
+  .content {
+    grid-column: 1 / -1;
   }
 }
 
