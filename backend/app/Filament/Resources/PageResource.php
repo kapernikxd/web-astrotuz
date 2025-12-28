@@ -73,6 +73,7 @@ class PageResource extends Resource
                                     'hero' => 'Hero',
                                     'article' => 'Article',
                                     'compatibility' => 'Compatibility',
+                                    'navigation' => 'Navigation',
                                 ])
                                 ->required()
                                 ->reactive(),
@@ -117,6 +118,23 @@ class PageResource extends Resource
                                         ->required(),
                                 ])
                                 ->visible(fn (Get $get) => $get('type') === 'compatibility')
+                                ->columnSpanFull(),
+                            Forms\Components\TextInput::make('aria_label')
+                                ->label('Aria label')
+                                ->visible(fn (Get $get) => $get('type') === 'navigation'),
+                            Forms\Components\Repeater::make('nav_items')
+                                ->label('Navigation items')
+                                ->schema([
+                                    Forms\Components\TextInput::make('label')
+                                        ->label('Label')
+                                        ->required(),
+                                    Forms\Components\TextInput::make('url')
+                                        ->label('URL')
+                                        ->required(),
+                                    Forms\Components\Toggle::make('is_active')
+                                        ->label('Active'),
+                                ])
+                                ->visible(fn (Get $get) => $get('type') === 'navigation')
                                 ->columnSpanFull(),
                         ])
                         ->collapsed()
