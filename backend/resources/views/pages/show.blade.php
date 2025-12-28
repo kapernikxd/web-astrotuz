@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $page->meta_title ?: $page->title)
+@section('title', $page->seo?->meta_title ?: $page->title)
+@section('meta_description', $page->seo?->meta_description)
 
 @section('content')
     <section class="content">

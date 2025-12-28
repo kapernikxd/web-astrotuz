@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\PageSeo;
 
 class Page extends Model
 {
@@ -11,8 +12,6 @@ class Page extends Model
         'slug',
         'template',
         'title',
-        'meta_title',
-        'meta_description',
         'content',
         'zodiac_blocks',
         'is_published',
@@ -21,4 +20,9 @@ class Page extends Model
     protected $casts = [
         'zodiac_blocks' => 'array',
     ];
+
+    public function seo()
+    {
+        return $this->hasOne(PageSeo::class);
+    }
 }
