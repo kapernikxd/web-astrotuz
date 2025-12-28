@@ -13,6 +13,13 @@ class PageController extends Controller
             ->where('is_published', true)
             ->firstOrFail();
 
-        return view('pages.show', compact('page'));
+        $template = $page->template ?: 'main';
+        $templateView = match ($template) {
+            'blank' => 'pages.templates.blank',
+            'main' => 'pages.templates.main',
+            default => 'pages.templates.main',
+        };
+
+        return view($templateView, compact('page'));
     }
 }

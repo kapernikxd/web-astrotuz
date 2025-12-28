@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('menuItems', $menuItems);
         });
 
-        View::composer(['welcome', 'pages.natal'], function ($view) {
+        View::composer(['layouts.page-main'], function ($view) {
             $leftSidebarCards = collect();
             $rightSidebarBlocks = collect();
 

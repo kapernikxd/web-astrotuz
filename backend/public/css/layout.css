@@ -8,6 +8,10 @@
   padding: 24px 0 90px;
 }
 
+.layout--single {
+  grid-template-columns: 1fr;
+}
+
 @media (max-width: 1024px) {
   .layout {
     grid-template-columns: 1fr;
