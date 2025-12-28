@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(MenuItemSeeder::class);
+        $this->call(LeftSidebarCardSeeder::class);
     }
 }
