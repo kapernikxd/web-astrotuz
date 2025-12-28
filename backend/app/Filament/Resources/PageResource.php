@@ -45,9 +45,14 @@ class PageResource extends Resource
                             return new HtmlString('<a href="' . e($url) . '" target="_blank" rel="noopener noreferrer">' . e($url) . '</a>');
                         }),
 
-                    Forms\Components\TextInput::make('template')
+                    Forms\Components\Select::make('template')
+                        ->label('Template')
+                        ->options([
+                            'main' => 'Main (left + center + right)',
+                            'blank' => 'Blank (center only)',
+                        ])
                         ->required()
-                        ->default('default'),
+                        ->default('main'),
 
                     Forms\Components\TextInput::make('title')
                         ->label('Title / H1')

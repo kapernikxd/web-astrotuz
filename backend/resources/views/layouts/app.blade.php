@@ -14,7 +14,7 @@
     @include('partials.topbar')
     @include('partials.mobile-menu')
 
-    <main class="container layout">
+    <main class="container @yield('layout_class', 'layout')">
         @yield('content')
     </main>
 
