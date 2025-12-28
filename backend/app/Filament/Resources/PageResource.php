@@ -6,9 +6,11 @@ use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\HtmlString;
 
 class PageResource extends Resource
 {
@@ -28,6 +30,20 @@ class PageResource extends Resource
                         ->required()
                         ->unique(ignoreRecord: true)
                         ->helperText('Например: aries или zodiac/aries'),
+
+                    Forms\Components\Placeholder::make('url_preview')
+                        ->label('Page URL')
+                        ->content(function (Get $get): HtmlString {
+                            $slug = $get('slug');
+
+                            if (!$slug) {
+                                return new HtmlString('<span class="text-sm text-gray-500">Сначала укажите slug.</span>');
+                            }
+
+                            $url = url($slug);
+
+                            return new HtmlString('<a href="' . e($url) . '" target="_blank" rel="noopener noreferrer">' . e($url) . '</a>');
+                        }),
 
                     Forms\Components\TextInput::make('template')
                         ->required()
@@ -72,6 +88,14 @@ class PageResource extends Resource
                 Tables\Columns\IconColumn::make('is_published')
                     ->boolean()
                     ->label('Published'),
+
+                Tables\Columns\TextColumn::make('url')
+                    ->label('URL')
+                    ->formatStateUsing(fn (Page $record): string => url($record->slug))
+                    ->url(fn (Page $record): string => url($record->slug), true)
+                    ->openUrlInNewTab()
+                    ->toggleable()
+                    ->limit(40),
 
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime('d.m.Y H:i')
