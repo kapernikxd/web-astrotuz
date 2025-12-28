@@ -53,7 +53,8 @@ class PageResource extends Resource
                             'zodiac_builder' => 'Zodiac builder',
                         ])
                         ->required()
-                        ->default('main'),
+                        ->default('main')
+                        ->live(),
 
                     Forms\Components\TextInput::make('title')
                         ->label('Title / H1')
