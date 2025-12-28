@@ -15,8 +15,8 @@ class LeftSidebarCardResource extends Resource
     protected static ?string $model = LeftSidebarCard::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Карточки левого сайдбара';
-    protected static ?string $navigationGroup = 'Контент';
+    protected static ?string $navigationLabel = 'Left Sidebar';
+    protected static ?string $navigationGroup = 'Content';
 
     public static function form(Form $form): Form
     {

@@ -8,7 +8,7 @@ class PartialsShowcase extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'UI блоки (Partials)';
-    protected static ?string $navigationGroup = 'Content';
+    protected static ?string $navigationGroup = 'UI';
     protected static ?string $slug = 'partials-showcase';
 
     protected static string $view = 'filament.pages.partials-showcase';
