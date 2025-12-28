@@ -14,6 +14,11 @@ class Page extends Model
         'meta_title',
         'meta_description',
         'content',
+        'zodiac_blocks',
         'is_published',
+    ];
+
+    protected $casts = [
+        'zodiac_blocks' => 'array',
     ];
 }

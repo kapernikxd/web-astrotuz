@@ -17,6 +17,7 @@ class PageController extends Controller
         $templateView = match ($template) {
             'blank' => 'pages.templates.blank',
             'main' => 'pages.templates.main',
+            'zodiac_builder' => 'pages.templates.zodiac-builder',
             default => 'pages.templates.main',
         };
 
