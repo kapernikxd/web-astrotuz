@@ -5,16 +5,6 @@
 @section('content')
     {{-- LEFT SIDEBAR --}}
     <aside class="sidebar desktop-only">
-        <x-card>
-            <h4 class="gold">Астрологический дневник</h4>
-            <p class="muted">14 лунный день</p>
-        </x-card>
-
-        <x-card>
-            <h4 class="gold">Планеты сейчас</h4>
-            <p class="violet">Меркурий ретрограден</p>
-        </x-card>
-
         @if($leftSidebarCards->isNotEmpty())
             <div class="sidebar-links">
                 @foreach($leftSidebarCards as $card)
@@ -45,13 +35,6 @@
                 <button class="cta">Получить расчёт</button>
             </form>
         </x-card>
-
-        <div class="services">
-            <div class="card service">Натальная карта</div>
-            <div class="card service">Совместимость</div>
-            <div class="card service">Гороскоп</div>
-            <div class="card service">Транзиты</div>
-        </div>
     </section>
 
     {{-- RIGHT SIDEBAR --}}
