@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\LeftSidebarCard;
 use App\Models\MenuItem;
 use App\Models\RightSidebarBlock;
 use Illuminate\Support\Facades\Schema;
@@ -38,7 +39,16 @@ class AppServiceProvider extends ServiceProvider
         });
 
         View::composer(['welcome', 'pages.natal'], function ($view) {
+            $leftSidebarCards = collect();
             $rightSidebarBlocks = collect();
+
+            if (Schema::hasTable('left_sidebar_cards')) {
+                $leftSidebarCards = LeftSidebarCard::query()
+                    ->where('is_active', true)
+                    ->orderBy('sort_order')
+                    ->orderBy('title')
+                    ->get();
+            }
 
             if (Schema::hasTable('right_sidebar_blocks')) {
                 $rightSidebarBlocks = RightSidebarBlock::query()
@@ -48,6 +58,7 @@ class AppServiceProvider extends ServiceProvider
                     ->get();
             }
 
+            $view->with('leftSidebarCards', $leftSidebarCards);
             $view->with('rightSidebarBlocks', $rightSidebarBlocks);
         });
     }
