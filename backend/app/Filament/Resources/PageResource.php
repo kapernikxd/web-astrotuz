@@ -50,9 +50,11 @@ class PageResource extends Resource
                         ->options([
                             'main' => 'Main (left + center + right)',
                             'blank' => 'Blank (center only)',
+                            'zodiac_builder' => 'Zodiac builder',
                         ])
                         ->required()
-                        ->default('main'),
+                        ->default('main')
+                        ->live(),
 
                     Forms\Components\TextInput::make('title')
                         ->label('Title / H1')
@@ -69,6 +71,65 @@ class PageResource extends Resource
 
                     Forms\Components\RichEditor::make('content')
                         ->label('Content')
+                        ->columnSpanFull(),
+
+                    Forms\Components\Repeater::make('zodiac_blocks')
+                        ->label('Zodiac blocks')
+                        ->schema([
+                            Forms\Components\Select::make('type')
+                                ->label('Block type')
+                                ->options([
+                                    'hero' => 'Hero',
+                                    'article' => 'Article',
+                                    'compatibility' => 'Compatibility',
+                                ])
+                                ->required()
+                                ->reactive(),
+                            Forms\Components\TextInput::make('eyebrow')
+                                ->label('Eyebrow')
+                                ->visible(fn (Get $get) => $get('type') === 'hero'),
+                            Forms\Components\TextInput::make('title')
+                                ->label('Title')
+                                ->required(fn (Get $get) => $get('type') === 'hero')
+                                ->visible(fn (Get $get) => $get('type') === 'hero'),
+                            Forms\Components\Textarea::make('intro')
+                                ->label('Intro text')
+                                ->rows(4)
+                                ->visible(fn (Get $get) => $get('type') === 'hero'),
+                            Forms\Components\TextInput::make('heading')
+                                ->label('Heading')
+                                ->required(fn (Get $get) => $get('type') === 'article')
+                                ->visible(fn (Get $get) => $get('type') === 'article'),
+                            Forms\Components\RichEditor::make('body')
+                                ->label('Body')
+                                ->visible(fn (Get $get) => $get('type') === 'article')
+                                ->columnSpanFull(),
+                            Forms\Components\TextInput::make('compatibility_title')
+                                ->label('Title')
+                                ->visible(fn (Get $get) => $get('type') === 'compatibility'),
+                            Forms\Components\Textarea::make('description')
+                                ->label('Description')
+                                ->rows(3)
+                                ->visible(fn (Get $get) => $get('type') === 'compatibility'),
+                            Forms\Components\Repeater::make('items')
+                                ->label('Compatibility items')
+                                ->schema([
+                                    Forms\Components\TextInput::make('label')
+                                        ->label('Label')
+                                        ->required(),
+                                    Forms\Components\TextInput::make('meta')
+                                        ->label('Meta'),
+                                    Forms\Components\TextInput::make('cta')
+                                        ->label('CTA'),
+                                    Forms\Components\TextInput::make('url')
+                                        ->label('URL')
+                                        ->required(),
+                                ])
+                                ->visible(fn (Get $get) => $get('type') === 'compatibility')
+                                ->columnSpanFull(),
+                        ])
+                        ->collapsed()
+                        ->visible(fn (Get $get) => $get('template') === 'zodiac_builder')
                         ->columnSpanFull(),
 
                     Forms\Components\Toggle::make('is_published')
