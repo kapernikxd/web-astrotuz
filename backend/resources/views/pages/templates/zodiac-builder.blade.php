@@ -18,6 +18,9 @@
             @case('navigation')
                 @include('partials.zodiac.navigation', ['block' => $block])
                 @break
+            @case('seo_navigation')
+                @include('partials.zodiac.seo-navigation', ['block' => $block])
+                @break
         @endswitch
     @endforeach
 @endsection

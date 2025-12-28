@@ -74,6 +74,7 @@ class PageResource extends Resource
                                     'article' => 'Article',
                                     'compatibility' => 'Compatibility',
                                     'navigation' => 'Navigation',
+                                    'seo_navigation' => 'SEO navigation',
                                 ])
                                 ->required()
                                 ->reactive(),
@@ -121,7 +122,7 @@ class PageResource extends Resource
                                 ->columnSpanFull(),
                             Forms\Components\TextInput::make('aria_label')
                                 ->label('Aria label')
-                                ->visible(fn (Get $get) => $get('type') === 'navigation'),
+                                ->visible(fn (Get $get) => in_array($get('type'), ['navigation', 'seo_navigation'], true)),
                             Forms\Components\Repeater::make('nav_items')
                                 ->label('Navigation items')
                                 ->schema([
@@ -135,6 +136,21 @@ class PageResource extends Resource
                                         ->label('Active'),
                                 ])
                                 ->visible(fn (Get $get) => $get('type') === 'navigation')
+                                ->columnSpanFull(),
+                            Forms\Components\TextInput::make('toc_title')
+                                ->label('Title')
+                                ->visible(fn (Get $get) => $get('type') === 'seo_navigation'),
+                            Forms\Components\Repeater::make('toc_items')
+                                ->label('SEO navigation items')
+                                ->schema([
+                                    Forms\Components\TextInput::make('label')
+                                        ->label('Label')
+                                        ->required(),
+                                    Forms\Components\TextInput::make('url')
+                                        ->label('URL')
+                                        ->required(),
+                                ])
+                                ->visible(fn (Get $get) => $get('type') === 'seo_navigation')
                                 ->columnSpanFull(),
                         ])
                         ->collapsed()

@@ -159,6 +159,56 @@ class PartialsShowcase extends Page
                                 ],
                             ],
                         ],
+                        [
+                            'label' => 'Zodiac SEO Navigation',
+                            'path' => 'resources/views/partials/zodiac/seo-navigation.blade.php',
+                            'summary' => 'SEO-навигация по разделам страницы с якорными ссылками.',
+                            'use_cases' => [
+                                'Быстрый переход к разделам внутри страницы',
+                                'Улучшение структуры для поисковых систем',
+                            ],
+                            'partial' => 'partials.zodiac.seo-navigation',
+                            'data' => [
+                                'block' => [
+                                    'toc_title' => 'Характеристика мужчины-Весов',
+                                    'aria_label' => 'Навигация по разделам',
+                                    'toc_items' => [
+                                        [
+                                            'label' => 'Характер',
+                                            'url' => '#character',
+                                        ],
+                                        [
+                                            'label' => 'Плюсы и минусы',
+                                            'url' => '#pros-cons',
+                                        ],
+                                        [
+                                            'label' => 'Любовь и отношения',
+                                            'url' => '#love',
+                                        ],
+                                        [
+                                            'label' => 'Совместимость с другими знаками',
+                                            'url' => '#compatibility',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            'mock' => [
+                                'block' => [
+                                    'toc_title' => 'Характеристика мужчины-Весов',
+                                    'toc_items' => [
+                                        [
+                                            'label' => 'Характер',
+                                        ],
+                                        [
+                                            'label' => 'Плюсы и минусы',
+                                        ],
+                                        [
+                                            'label' => 'Любовь и отношения',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
                     ],
                 ],
             ],

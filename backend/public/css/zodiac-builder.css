@@ -120,6 +120,54 @@
   box-shadow: 0 8px 18px rgba(240, 82, 75, 0.3);
 }
 
+.zodiac-toc {
+  padding: 24px;
+}
+
+.zodiac-toc__title {
+  margin: 0 0 14px;
+  font-size: clamp(22px, 2.4vw, 30px);
+}
+
+.zodiac-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.zodiac-toc__item {
+  margin: 0;
+  padding-left: 18px;
+  position: relative;
+}
+
+.zodiac-toc__item::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #c5c7d5;
+  left: 0;
+  top: 0.6em;
+}
+
+.zodiac-toc__link {
+  color: #2f2f37;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px dashed #c9ccda;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.zodiac-toc__link:hover,
+.zodiac-toc__link:focus-visible {
+  color: #17171c;
+  border-color: #7e8194;
+}
+
 @media (max-width: 720px) {
   .zodiac-nav__list {
     flex-wrap: nowrap;
@@ -129,5 +177,9 @@
 
   .zodiac-nav__link {
     white-space: nowrap;
+  }
+
+  .zodiac-toc {
+    padding: 18px;
   }
 }
