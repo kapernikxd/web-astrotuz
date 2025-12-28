@@ -15,6 +15,9 @@
             @case('compatibility')
                 @include('partials.zodiac.compatibility', ['block' => $block])
                 @break
+            @case('navigation')
+                @include('partials.zodiac.navigation', ['block' => $block])
+                @break
         @endswitch
     @endforeach
 @endsection
