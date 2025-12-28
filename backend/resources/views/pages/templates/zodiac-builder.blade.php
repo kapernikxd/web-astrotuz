@@ -1,6 +1,7 @@
 @extends('layouts.page-main')
 
-@section('title', $page->meta_title ?: $page->title)
+@section('title', $page->seo?->meta_title ?: $page->title)
+@section('meta_description', $page->seo?->meta_description)
 
 @section('page_content')
     @foreach($page->zodiac_blocks ?? [] as $block)

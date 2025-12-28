@@ -9,6 +9,7 @@ class PageController extends Controller
     public function show(string $slug)
     {
         $page = Page::query()
+            ->with('seo')
             ->where('slug', $slug)
             ->where('is_published', true)
             ->firstOrFail();

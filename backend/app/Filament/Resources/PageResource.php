@@ -60,15 +60,6 @@ class PageResource extends Resource
                         ->label('Title / H1')
                         ->required(),
 
-                    Forms\Components\TextInput::make('meta_title')
-                        ->label('Meta title')
-                        ->maxLength(255),
-
-                    Forms\Components\Textarea::make('meta_description')
-                        ->label('Meta description')
-                        ->rows(3)
-                        ->maxLength(255),
-
                     Forms\Components\RichEditor::make('content')
                         ->label('Content')
                         ->columnSpanFull(),
