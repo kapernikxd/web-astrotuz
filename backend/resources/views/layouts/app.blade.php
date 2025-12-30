@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/zodiac-builder.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 </head>
 <body>
 
@@ -24,6 +25,8 @@
     <main class="container @yield('layout_class', 'layout')">
         @yield('content')
     </main>
+
+    @include('partials.footer')
 
     <script src="{{ asset('js/header-menu.js') }}"></script>
 </body>
